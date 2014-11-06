@@ -1,0 +1,27 @@
+
+<div class="panel panel-default">
+  <div class="panel-heading">Repo Name : {{ repo.name }}</div>
+  
+  <ul class="list-group">
+    <li class="list-group-item">
+      <b>Repo Owner:</b><p>{{repo.owner.login}}</p>
+    </li>
+    <li class="list-group-item">
+      <b>Description: </b><p>{{repo.description}}</p>
+    </li>
+    <li class="list-group-item">
+      <b>Url:</b><p><a href="{{ repo.html_url }}" target="_blank">{{ repo.url }}</a></p>
+    </li>
+    <li class="list-group-item">
+      <b>Created at:</b><p>{{repo.created_at | date:"MM/dd/yyyy hh:mma"}}</p>
+    </li>
+    <li class="list-group-item">
+      <b>Updated at:</b><p>{{repo.updated_at | date:"MM/dd/yyyy hh:mma"}}</p>
+    </li>
+  </ul>
+</div>
+
+<br/>
+<a href="#/main">Back to search</a>
+<br/>
+<a href="#/user/{{repo.owner.login}}">Back to {{repo.owner.login}}</a>

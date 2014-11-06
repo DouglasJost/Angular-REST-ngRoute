@@ -1,0 +1,43 @@
+
+<div>
+  <h1>{{user.name}}</h1>
+  {{ error }}
+  <div class="">{{user.location}}</div>
+  <div class="">{{user.email}}</div>
+  <img ng-src="{{user.avatar_url}}" title="{{user.name}}" />
+  <br/>
+  <br/>
+  <div>
+    Order by : {{ repoSortOrder }}
+  </div>
+</div>
+
+<br/>
+<p>(Select header to sort)</p>
+<p>{{repos.length}} repos found</p>
+<div class="table-responsive">
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th ng-click="repoSortByName()" title="Sort By Name">Name</th>
+        <th ng-click="repoSortByStars()" title="Sort By Stars">Stars</th>
+        <th ng-click="repoSortByLanguage()" title="Sort By Language">Language</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="repo in repos | orderBy:repoSortOrder">
+        <td>
+          <a href="#/repo/{{user.login}}/{{repo.name}}">
+            {{repo.name}}
+          </a> 
+        </td>
+        <td>{{repo.stargazers_count | number}}</td>
+        <td>{{repo.language}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<br/>
+<a href="#/main">Back to search</a>
+
